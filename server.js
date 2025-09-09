@@ -19,12 +19,14 @@ mongoose
   .then(() => console.log("✅ Connected to MongoDB"))
   .catch((err) => console.error("❌ Mongo error:", err));
 
+// CORS with hardcoded frontend URL
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: "https://freelance-website-neon.vercel.app", // your frontend URL
     credentials: true,
   })
 );
+
 app.use(express.json());
 app.use(cookieParser());
 
@@ -49,5 +51,5 @@ app.use((err, req, res, next) => {
   });
 });
 
-// 👉 Export (no app.listen)
+
 export default app;
